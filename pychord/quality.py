@@ -119,12 +119,13 @@ class QualityManager:
         """
         self._qualities[name] = Quality(name, components)
 
-    def find_quality_from_components(self, components: List[int]):
+    def find_quality_from_components(self, temp_root, components: List[int]):
         """ Find a quality from components
 
         :param components: components of quality
         """
         for q in self._qualities.values():
             if list(q.components) == components:
+                print(temp_root, components)
                 return copy.deepcopy(q)
         return None
