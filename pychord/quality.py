@@ -126,6 +126,6 @@ class QualityManager:
         """
         for q in self._qualities.values():
             if list(q.components) == components:
-                print(temp_root, components)
+                # print(temp_root, components)
                 return copy.deepcopy(q)
         return None

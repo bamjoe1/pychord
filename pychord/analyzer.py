@@ -7,7 +7,7 @@ import itertools
 import numpy as np
 
 
-def find_chords_from_notes(notes: List[str], rap: dict, key: int, slash) -> List[Chord]:
+def find_chords_from_notes(notes: List[str], slash: str) -> List[Chord]:
     """ Find possible chords consisted from notes
 
     :param notes: List of note arranged from lower note. ex) ["C", "Eb", "G"]
@@ -23,8 +23,8 @@ def find_chords_from_notes(notes: List[str], rap: dict, key: int, slash) -> List
     for rotated_notes in get_all_rotated_notes(notes):
         rotated_root = rotated_notes[0]
         root_and_positions.append((rotated_root, notes_to_positions(rotated_notes, rotated_notes[0])))
-    print(root_and_positions)
-    rap[key] = root_and_positions
+    # print(root_and_positions)
+    # rap[key] = root_and_positions
     chords = []
     for temp_root, positions in root_and_positions:
         quality = QualityManager().find_quality_from_components(temp_root, positions)
