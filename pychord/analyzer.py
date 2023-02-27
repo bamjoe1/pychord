@@ -3,14 +3,14 @@ from typing import List
 from .chord import Chord
 from .quality import QualityManager
 from .utils import note_to_val
-import itertools
+import itertools as it
 import numpy as np
 
 
-def find_chords_from_notes(notes: List[str], slash: str) -> List[Chord]:
+def find_chords_from_notes(notes: List[str], slash='n') -> List[Chord]:
     """ Find possible chords consisted from notes
 
-    :param notes: List of note arranged from lower note. ex) ["C", "Eb", "G"]
+    :param notes: List of note arranged from lower note. ex: ["C", "Eb", "G"]
     :return: List of chord
     """
     if not notes:
@@ -69,7 +69,7 @@ def get_all_rotated_notes(notes: List[str]) -> List[List[str]]:
         # notes_list.append(notes[x:] + notes[:x])
     
     #ALL PERMS
-    notes_list = list(itertools.permutations(notes))
+    notes_list = list(it.permutations(notes))
     return notes_list
 
 # def get_modded_raps(rap, key):
